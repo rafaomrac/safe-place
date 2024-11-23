@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafePlace - Bem-Vindo</title>
+    <link rel="stylesheet" href="./src/SafePlace.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="menu-section">
+            <header>
+                <h1>SafePlace</h1>
+                <p>Reconhecimento Facial e Gestão de Frequência</p>
+            </header>
+            <button onclick="iniciarPrograma()">
+                <i class="icon">🚀</i> Iniciar Programa
+            </button>
+            <button onclick="abrirListasPresenca()">
+                <i class="icon">📋</i> Listas de Presença
+            </button>
+            <button onclick="analisarGravacoes()">
+                <i class="icon">🎥</i> Analisar Gravações
+            </button>
+            <button onclick="abrirSuporte()">
+                <i class="icon">🛠️</i> Suporte
+            </button>
+            <button onclick="abrirConfiguracoes()">
+                <i class="icon">⚙️</i> Configurações
+            </button>
+            <button onclick="sair()">
+                <i class="icon">🚪</i> Sair
+            </button>
+        </div>
+
+        <div class="content-section" id="contentSection">
+            <h2>Bem-vindo! Selecione uma opção ao lado.</h2>
+
+            <div class="modal" id="modalListasPresenca" style="display: none;">
+                <h2>Listas de Presença</h2>
+                <label for="curso">Curso:</label>
+                <select id="curso" onchange="atualizarDiasSemana()">
+                    <option value="">Selecione um curso</option>
+                    <option value="engenharia_software">Engenharia de Software</option>
+                </select>
+
+                <label for="periodo">Período:</label>
+                <select id="periodo" onchange="atualizarDiasSemana()">
+                    <option value="">Selecione um período</option>
+                    <option value="1">1º</option>
+                    <option value="2">2º</option>
+                    <option value="3">3º</option>
+                    <option value="4">4º</option>
+                    <option value="5">5º</option>
+                </select>
+
+                <label for="turma">Turma:</label>
+                <select id="turma" onchange="atualizarDiasSemana()">
+                    <option value="">Selecione uma turma</option>
+                    <option value="turmaA">Turma A</option>
+                    <option value="turmaB">Turma B</option>
+                </select>
+
+                
+                <div id="diasSemana" style="display: none;">
+                    <h3>Dias da Semana - Escolha os dias para a lista de presença</h3>
+                    <div id="listaDias">
+                        <label><input type="checkbox" value="Segunda-feira"> Segunda-feira</label><br>
+                        <label><input type="checkbox" value="Terça-feira"> Terça-feira</label><br>
+                        <label><input type="checkbox" value="Quarta-feira"> Quarta-feira</label><br>
+                        <label><input type="checkbox" value="Quinta-feira"> Quinta-feira</label><br>
+                        <label><input type="checkbox" value="Sexta-feira"> Sexta-feira</label><br>
+                    </div>
+                </div>
+
+                <button onclick="fecharModal('modalListasPresenca')">Fechar</button>
+            </div>
+
+            
+            <div class="modal" id="modalConfiguracoes" style="display: none;">
+                <h2>Configurações</h2>
+                <button onclick="adicionarRosto()">Adicionar Rosto</button>
+                <button onclick="removerRosto()">Remover Rosto</button>
+                <button onclick="fecharModal('modalConfiguracoes')">Fechar</button>
+            </div>
+
+            
+            <div class="modal" id="modalSuporte" style="display: none;">
+                <h2>Suporte</h2>
+                <p><strong>Contatos dos Administradores:</strong></p>
+                <ul>
+                    <li>PETRICK: (555) 1234-56</li>
+                    <li>ANDREW: (555) 8765-43</li>
+                    <li>LUAN: (555) 9789-25</li>
+                    <li>RAFAEL: (555) 2866-32</li>
+                    <li>ÓTAVIO: (555) 2973-22</li>
+                    <li>YGOR: (555) 2839-15</li>
+                </ul>
+                <p><strong>Email da Empresa:</strong> contato@safeplace.com</p>
+                <label for="mensagemUsuario">Digite sua mensagem:</label>
+                <textarea id="mensagemUsuario" rows="4" placeholder="Digite sua mensagem aqui..."></textarea>
+                <button onclick="enviarMensagemSuporte()">Enviar Mensagem</button>
+                <button onclick="fecharModal('modalSuporte')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./src/SafePlace.js"></script>
+</body>
+</html>
